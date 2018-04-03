@@ -1,0 +1,93 @@
+<!--
+  Generated template for the AccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-buttons end>
+<button ion-button color="light" (click)="loadReports()">Refresh</button>
+<button ion-button color="primary" (click)="logout()">Logout</button>
+</ion-buttons>
+
+<h3 (click)="openAccModal()">Hello there {{userDetails.name}}</h3>
+
+<!--THIS LOOPS WHAT EVER IS INSIDE 'LIST' INTO 'REPORT' -->
+
+<span *ngIf="reportTotal">{{reportTotal}} report(s) loaded.</span>
+<span *ngIf="!reportTotal">You have not made any reports. Kindly navigate to the next tab to write one. </span>
+<span>Tap on your name to manage your account</span>
+<span *ngIf="reportTotal > 0">
+
+<ion-card *ngFor="let report of list">
+  <ion-icon *ngIf="report.picture_url" class="categoryIcon" [name]=categoryIcon(report.category)></ion-icon>
+  <img *ngIf="report.picture_url" style="rect(0px, 160px, 90px, 0px)" src="{{report.picture_url}}"/>
+
+  <ion-card-content>
+    <ion-row class="title" text-wrap>
+      {{report.reportitle}}
+    </ion-row>
+    <ion-row text-wrap>
+      {{report.reportdetails}}
+    </ion-row>
+    <ion-grid>
+      <ion-row class="progress">
+      <br>
+        <ion-col>
+          Seen
+        </ion-col>
+        <ion-col>
+          Action taken
+        </ion-col>
+        <ion-col>
+          Work done
+        </ion-col>
+      </ion-row>
+      <ion-row id="center">
+        <ion-col >
+          <ion-icon *ngIf="report.seenstat == 0" class="off" name="eye"></ion-icon>
+          <ion-icon *ngIf="report.seenstat == 1" class="on" name="eye"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon *ngIf="report.actionstat == 0" class="off" name="construct"></ion-icon>
+          <ion-icon *ngIf="report.actionstat == 1" class="on" name="construct"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon *ngIf="report.donestat == 0" class="off" name="checkbox"></ion-icon>
+          <ion-icon *ngIf="report.donestat == 1" class="on" name="checkbox"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="text-align: left">
+          <ion-row class="timeRow">
+            Time posted:
+          </ion-row>
+          <ion-row class="timeRow">
+          {{report.created_at}}
+          </ion-row>
+        </ion-col>
+        <ion-col *ngIf="!report.feedback" style="text-align: right">
+          <button ion-button *ngIf="report.seenstat == 0" color="primary" (click)=deleteReport(report.id)>Delete</button>
+          <button ion-button *ngIf="report.donestat == 1" color="primary" (click)=openFeedback(report.id)>Feedback</button>
+        </ion-col>
+        <ion-col *ngIf="report.feedback" style="text-align: right">
+          <button ion-button color="light">Summary</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+
+</ion-card>
+</span>
+
+
+</ion-content>

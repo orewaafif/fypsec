@@ -1,0 +1,49 @@
+<!--
+  Generated template for the MainreportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Maintenance Report</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Please record your problem below:</h3>
+
+  <br>
+  <button ion-button color="primary" (click)="takePicture()"><ion-icon name="camera"></ion-icon>&nbsp; Take photo</button>
+  <button ion-button color="light" (click)="takePhoto()"><ion-icon name="albums"></ion-icon>&nbsp; Your gallery</button>
+
+  <ion-card *ngIf="pictureData.preview" style="position: relative;">
+    <button class="upload" *ngIf="!pictureData.uploading" ion-button color="primary" (click)="uploadPicture()">Confirm Upload</button>
+    <button class="upload" *ngIf="pictureData.uploading && !reportData.picture_url" ion-button color="light">Uploading..</button>
+    <button class="upload" *ngIf="reportData.picture_url" ion-button color="light">Uploaded</button>
+
+    <img [src]="this.pictureData.preview"/>
+    <!-- <ion-buttons end> -->
+
+    <!-- </ion-buttons> -->
+  </ion-card>
+
+  <!-- <span *ngIf="pictureData.stat">{{pictureData.stat}}</span>&nbsp; -->
+  <!-- <span *ngIf="reportData.picture_url">Uploaded</span> -->
+  <ion-item>
+    <ion-label color="primary" stacked>Report Title</ion-label>
+    <ion-input type="text" placeholder="Report Subject" [(ngModel)]="reportData.reportitle"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" stacked>Report Details</ion-label>
+    <ion-textarea type="text" placeholder="Details here" [(ngModel)]="reportData.reportdetails"></ion-textarea>
+  </ion-item>
+  <br>
+  <button ion-button color="primary" (click)="reportSubmit()">Submit</button>
+  <button ion-button color="light" (click)="clear()">Reset</button>
+
+</ion-content>

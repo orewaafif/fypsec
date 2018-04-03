@@ -1,0 +1,43 @@
+page-account {
+
+
+#center{
+  text-align: center;
+  zoom:1.4;
+}
+
+ion-icon.on{
+  color: #4CAF50;
+}
+
+ion-icon.off{
+  color: #a3a3a3;
+}
+
+.progress{
+  text-align: center;
+  font-size: 0.8em;
+  padding-bottom: 0px;
+}
+
+.title{
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.timeRow{
+  font-size: 0.8em;
+}
+
+.reportdetails{
+  text-align: justify;
+}
+
+.categoryIcon{
+  color:#ffffff;
+  position:absolute;
+  padding:4px;
+  zoom:2.0;
+}
+
+}

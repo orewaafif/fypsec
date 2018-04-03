@@ -1,0 +1,41 @@
+<!--
+  Generated template for the FeedbackModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+    <ion-label color="happy" stacked>Happiness&nbsp; : {{this.feedbackData.happy}}</ion-label>
+    <ion-range [(ngModel)]="this.feedbackData.happy" min="1" max="5" step="1" color="happy">
+      <ion-icon range-left name="sad"></ion-icon>
+      <ion-icon range-right name="happy"></ion-icon>
+    </ion-range>
+
+    <ion-label color="time" stacked>Timeliness&nbsp; : {{this.feedbackData.time}}</ion-label>
+    <ion-range [(ngModel)]="this.feedbackData.time" min="1" max="5" step="1" color="time">
+      <ion-icon range-left name="sad"></ion-icon>
+      <ion-icon range-right name="happy"></ion-icon>
+    </ion-range>
+    </ion-card-content>
+  </ion-card>
+
+    <ion-item>
+      <ion-label color="primary">Comments: </ion-label>
+      <ion-textarea [(ngModel)]="this.feedbackData.comment" placeholder="Type here.."></ion-textarea>
+    </ion-item>
+
+    <button ion-button color="primary" (click)="submitFeedback()">Submit</button>
+    <button ion-button color="light" (click)="dismiss()">Cancel</button>
+
+</ion-content>

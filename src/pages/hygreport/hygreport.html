@@ -1,0 +1,33 @@
+<!--
+  Generated template for the HygreportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Hygiene Report</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Hygiene includes dirty toilets and pests</h3>
+
+  <br>
+  <ion-item>
+    <ion-label color="primary" stacked>Report Title</ion-label>
+    <ion-input type="text" placeholder="Report Subject" [(ngModel)]="reportData.reportitle"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" stacked>Report Details</ion-label>
+    <ion-textarea type="text" placeholder="Details here" [(ngModel)]="reportData.reportdetails"></ion-textarea>
+  </ion-item>
+  <br>
+  <button ion-button color="primary" (click)="reportSubmit()">Submit</button>
+  <button ion-button color="light" (click)="clear()">Reset </button>
+
+</ion-content>

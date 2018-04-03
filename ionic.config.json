@@ -1,0 +1,8 @@
+{
+  "name": "fypsec",
+  "app_id": "420a1226",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
